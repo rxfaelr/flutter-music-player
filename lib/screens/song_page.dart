@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_music_player/screens/neu_box.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import 'selection_page.dart';
+
 class SongPage extends StatefulWidget {
   const SongPage({Key? key}) : super(key: key);
 
@@ -42,7 +44,17 @@ class _SongPageState extends State<SongPage> {
                     SizedBox(
                       height: 60,
                       width: 60,
-                      child: NeuBox(child: Icon(Icons.menu)),
+                      child: InkWell(
+                        child: NeuBox(child: Icon(Icons.menu)),
+                        onTap: (() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SelectionPage(),
+                            ),
+                          );
+                        }),
+                      ),
                     ),
                   ],
                 ),
